@@ -1,20 +1,10 @@
 <template>
     <div>
-<!--        TODO:This works, but think about making it more modular by using routing capabilities-->
         <v-tabs v-model="tabs" dark slider-color="blue darken-1" optional>
-            <v-tab>Page 1</v-tab>
-            <v-tab>Page 2 & 3</v-tab>
+            <v-tab to="page1">Page 1</v-tab>
+            <v-tab to="page2_3">Page 2 & 3</v-tab>
         </v-tabs>
-        <v-tabs-items v-model="tabs">
-            <v-tab-item>
-                p1
-                <router-view name="page1"/>
-            </v-tab-item>
-            <v-tab-item>
-                p2
-                <router-view name="page2"/>
-            </v-tab-item>
-        </v-tabs-items>
+        <router-view />
     </div>
 </template>
 
