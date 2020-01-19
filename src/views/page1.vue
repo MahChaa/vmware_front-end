@@ -21,6 +21,8 @@
                     </v-card>
                 </v-col>
                 <v-col md="9" sm="8">
+<!--                    TODO: Replace place holder img before building-->
+<!--                    <v-img v-if="item != null && listItems[item].image" :src="listItems[item].image" max-width="1920px" max-height="1080px" contain position="top">-->
                     <v-img :src="src" max-width="1920px" max-height="1080px" contain position="top">
                         <template v-slot:placeholder>
                             <v-row class="fill-height ma-0" align="center" justify="center">
