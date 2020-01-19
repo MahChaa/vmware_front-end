@@ -10,9 +10,9 @@
                             </v-subheader>
                             <v-list-item-group v-model="item">
 <!--                                //TODO: We must find a way to sneak in tooltips for each list item in case the item title is truncated-->
-                                <v-list-item v-for="(item, i) in listItems" :key="i">
+                                <v-list-item v-for="(item, i) in $store.getters.getSites" :key="i">
                                     <v-list-item-content>
-                                        <v-list-item-title v-html="item.title" />
+                                        <v-list-item-title v-html="item.site" />
                                         <v-list-item-subtitle v-if="twoLines || threeLines && item.subtitle" v-html="item.subtitle" />
                                     </v-list-item-content>
                                 </v-list-item>
@@ -40,28 +40,6 @@
     export default {
         name: "page1",
         data: () => ({
-            listItems: [
-                {
-                    title: "Site 1",
-                    subtitle: null,
-                    image: null
-                },
-                {
-                    title: "Site 2",
-                    subtitle: null,
-                    image: null
-                },
-                {
-                    title: "Site 3",
-                    subtitle: null,
-                    image: null
-                },
-                {
-                    title: "Site 4",
-                    subtitle: null,
-                    image: null
-                }
-            ],
             src: require("@/assets/placeholder.png"),       //Placeholder, remove when real data is provided
             twoLines: false,
             threeLines: false,
