@@ -13,7 +13,7 @@
                                 <v-list-item v-for="(item, i) in $store.getters.getSites" :key="i">
                                     <v-list-item-content>
                                         <v-list-item-title v-html="item.site" />
-                                        <v-list-item-subtitle v-if="twoLines || threeLines && item.subtitle" v-html="item.subtitle" />
+                                        <v-list-item-subtitle v-if="twoLines || threeLines && item.details" v-html="item.details" />
                                     </v-list-item-content>
                                 </v-list-item>
                             </v-list-item-group>

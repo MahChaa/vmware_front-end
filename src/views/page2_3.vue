@@ -9,15 +9,16 @@
                                 Sites
                             </v-subheader>
                             <v-list-item-group v-model="site">
-                                <v-list-group>
-<!--                                    <template v-slot:activator>-->
-<!--                                        <v-list-item-title  TODO:Finish this, create groups-->
-<!--                                    </template>-->
+                                <v-list-group v-for="(group, i) in $store.getters.getSites" :key="i" prepend-icon="account-circle">
+                                    <template v-slot:activator>
+                                        <v-list-item-title v-html="group.site" />
+                                        <v-list-item-subtitle v-if="twoLines || threeLines && group.details" v-html="group.details" />
+                                    </template>
                                     <!--                                //TODO: We must find a way to sneak in tooltips for each list item in case the item title is truncated-->
-                                    <v-list-item v-for="(item, i) in site1" :key="i">
+                                    <v-list-item v-for="(item, j) in $store.getters.getServers[i]" :key="j">
                                         <v-list-item-content>
-                                            <v-list-item-title v-html="item.title" />
-                                            <v-list-item-subtitle v-if="twoLines || threeLines && item.subtitle" v-html="item.subtitle" />
+                                            <v-list-item-title v-html="item.server" />
+                                            <v-list-item-subtitle v-if="twoLines || threeLines && item.details" v-html="item.details" />
                                         </v-list-item-content>
                                     </v-list-item>
                                 </v-list-group>

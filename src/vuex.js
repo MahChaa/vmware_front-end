@@ -9,84 +9,84 @@ const store = new Vuex.Store({
             [
                 {
                     site: "Site 1",
-                    subtitle: null,
+                    details: null,
                     image: null
                 },
                 [
                     {
                         server: "VM 1",
-                        subtitle: null
+                        details: null
                     },
                     {
                         server: "VM 2",
-                        subtitle: null
+                        details: null
                     },
                     {
                         server: "VM 3",
-                        subtitle: null
+                        details: null
                     }
                 ]
             ],
             [
                 {
                     site: "Site 2",
-                    subtitle: null,
+                    details: null,
                     image: null
                 },
                 [
                     {
                         server: "VM 1",
-                        subtitle: null
+                        details: null
                     },
                     {
                         server: "VM 2",
-                        subtitle: null
+                        details: null
                     },
                     {
                         server: "VM 3",
-                        subtitle: null
+                        details: null
                     }
                 ]
             ],
             [
                 {
                     site: "Site 3",
-                    subtitle: null,
+                    details: null,
                     image: null
                 },
                 [
                     {
                         server: "VM 1",
-                        subtitle: null
+                        details: null
                     },
                     {
                         server: "VM 2",
-                        subtitle: null
+                        details: null
                     },
                     {
                         server: "VM 3",
-                        subtitle: null
+                        details: null
                     }
                 ]
             ],
             [
                 {
                     site: "Site 4",
-                    subtitle: null,
+                    details: null,
                     image: null
                 },
                 [
                     {
                         server: "VM 1",
-                        subtitle: null
+                        details: null
                     },
                     {
                         server: "VM 2",
-                        subtitle: null
+                        details: null
                     },
                     {
                         server: "VM 3",
-                        subtitle: null
+                        details: null
                     }
                 ]
             ]
@@ -99,10 +99,19 @@ const store = new Vuex.Store({
             let sites = [];
 
             state.sites.forEach((site) => {
-                sites.push(site[0])
+                sites.push(site[0]);
             });
 
             return sites;
+        },
+        getServers: state => {
+            let servers = [];
+
+            state.sites.forEach((site) => {
+                servers.push(site[1]);
+            });
+
+            return servers
         }
     },
     actions: {
