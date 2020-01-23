@@ -11,9 +11,12 @@
                             <v-list-item-group v-model="item">
 <!--                                //TODO: We must find a way to sneak in tooltips for each list item in case the item title is truncated-->
                                 <v-list-item v-for="(item, i) in $store.getters.getSites" :key="i">
+                                    <v-list-item-icon>
+                                        <v-icon v-text="icons.site" />
+                                    </v-list-item-icon>
                                     <v-list-item-content>
-                                        <v-list-item-title v-html="item.site" />
-                                        <v-list-item-subtitle v-if="twoLines || threeLines && item.details" v-html="item.details" />
+                                        <v-list-item-title v-text="item.site" />
+                                        <v-list-item-subtitle v-if="twoLines || threeLines && item.details" v-text="item.details" />
                                     </v-list-item-content>
                                 </v-list-item>
                             </v-list-item-group>
@@ -37,13 +40,18 @@
 </template>
 
 <script>
+    import {mdiSitemap} from "@mdi/js"
+
     export default {
         name: "page1",
         data: () => ({
             src: require("@/assets/placeholder.png"),       //Placeholder, remove when real data is provided
             twoLines: false,
             threeLines: false,
-            item: null
+            item: null,
+            icons: {
+                site: mdiSitemap
+            }
         }),
         watch: {}
     }

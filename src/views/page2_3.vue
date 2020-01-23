@@ -9,16 +9,19 @@
                                 Sites
                             </v-subheader>
                             <v-list-item-group v-model="site">
-                                <v-list-group v-for="(group, i) in $store.getters.getSites" :key="i" prepend-icon="account-circle">
+                                <v-list-group v-for="(group, i) in $store.getters.getSites" :key="i" :prepend-icon="icons.site">
                                     <template v-slot:activator>
-                                        <v-list-item-title v-html="group.site" />
-                                        <v-list-item-subtitle v-if="twoLines || threeLines && group.details" v-html="group.details" />
+                                        <v-list-item-title v-text="group.site" />
+                                        <v-list-item-subtitle v-if="twoLines || threeLines && group.details" v-text="group.details" />
                                     </template>
                                     <!--                                //TODO: We must find a way to sneak in tooltips for each list item in case the item title is truncated-->
                                     <v-list-item v-for="(item, j) in $store.getters.getServers[i]" :key="j">
+                                        <v-list-item-icon>
+                                            <v-icon v-text="icons.server" />
+                                        </v-list-item-icon>
                                         <v-list-item-content>
-                                            <v-list-item-title v-html="item.server" />
-                                            <v-list-item-subtitle v-if="twoLines || threeLines && item.details" v-html="item.details" />
+                                            <v-list-item-title v-text="item.server" />
+                                            <v-list-item-subtitle v-if="twoLines || threeLines && item.details" v-text="item.details" />
                                         </v-list-item-content>
                                     </v-list-item>
                                 </v-list-group>
@@ -35,13 +38,19 @@
 </template>
 
 <script>
+    import {mdiServer, mdiSitemap} from "@mdi/js";
+
     export default {
         name: "page2_3",
         data: () => ({
             twoLines: false,
             threeLines: false,
             site: null,
-            server: null
+            server: null,
+            icons: {
+                site: mdiSitemap,
+                server: mdiServer
+            }
         })
     }
 </script>
